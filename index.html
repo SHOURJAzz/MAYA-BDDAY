@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A magical birthday archive made especially for Mayabee.">
+    <meta name="theme-color" content="#11152f">
+    <title>Happy Birthday Mayabee ✨</title>
+    <link rel="stylesheet" href="birthday-styles.css?v=5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="floating-nav" id="floatingNav" aria-label="Page navigation">
+        <ul class="nav-links">
+            <li><a href="#home" data-section="home">Home</a></li>
+            <li><a href="#letter" data-section="letter">Letter</a></li>
+            <li><a href="#memories" data-section="memories">Memories</a></li>
+            <li><a href="#roast" data-section="roast">Roast</a></li>
+            <li><a href="#surprise" data-section="surprise">Surprise</a></li>
+        </ul>
+    </nav>
+
+    <!-- SECTION 1: COUNTDOWN / PRE-MIDNIGHT -->
+    <section id="home" class="section countdown-section">
+        <div class="countdown-container">
+            <div class="countdown-ambient">
+                <div class="particles-container" id="particlesContainer"></div>
+                <div class="floating-orbs"></div>
+            </div>
+
+            <div class="countdown-content">
+                <p class="wizard-kicker">THE MAYABEE ARCHIVES · AUGUST 31</p>
+                <h1 class="intro-text">Something special is waiting for you...</h1>
+                
+                <h2 class="birthday-name">MAYABEE</h2>
+
+                <img class="countdown-cake" src="magical-birthday-cake.png?v=2" alt="A magical colorful birthday cake with castle towers and candles">
+                
+                <p class="countdown-label">Your birthday unlocks in</p>
+                
+                <div class="countdown-display" id="countdownDisplay">
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-unit">DAYS</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-unit">HOURS</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-unit">MINUTES</span>
+                    </div>
+                    <span class="countdown-separator">:</span>
+                    <div class="countdown-item">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-unit">SECONDS</span>
+                    </div>
+                </div>
+
+                <p class="cheeky-message">Don't try to skip to the good part 👀</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: MIDNIGHT TRANSITION (Hidden until midnight) -->
+    <section id="midnight-transition" class="section midnight-transition" style="display: none;">
+        <div class="transition-container">
+            <div class="midnight-particles" id="midnightParticles"></div>
+            <div class="midnight-glow"></div>
+            <div class="midnight-confetti" id="midnightConfetti"></div>
+            <h1 class="midnight-message">HAPPY BIRTHDAY MAYABEE ✨</h1>
+        </div>
+    </section>
+
+    <!-- SECTION 3: BIRTHDAY CARD -->
+    <section id="card" class="section birthday-card-section">
+        <div class="birthday-card">
+            <div class="card-background"></div>
+            <div class="card-content">
+                <p class="wizard-kicker">A birthday parchment, sealed with questionable magic</p>
+                <h1 class="card-heading">Happy Birthday Boomer 🎂</h1>
+                <p class="card-subtext">Age isn't just a number.</p>
+                <p class="card-joke">If it was, Jeffrey Epstein wouldn't be a criminal lmao.</p>
+                <button class="open-letter-btn" id="openLetterBtn">Open your birthday message 💌</button>
+            </div>
+            <div class="card-stars"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: HEARTFELT LETTER -->
+    <section id="letter" class="section letter-section">
+        <div class="letter-container">
+            <div class="letter-content">
+                <h2 class="letter-title">Things I Don't Say Enough</h2>
+                <div class="letter-divider"></div>
+                <p class="letter-main-text" id="letterMainText">
+                    You're the 1st woman I loved and my only current emotional dependency.
+                </p>
+                <div class="letter-subtext-container">
+                    <p class="letter-subtext">
+                        And honestly, that means everything to me. Through all the chaos, all the jokes, all the sibling madness — you've been a constant. Not perfect (lol), but constant in the ways that matter.
+                    </p>
+                    <p class="letter-subtext">
+                        I don't say it enough. So here it is: I'm grateful for you.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: YOU ARE... CARDS -->
+    <section id="you-are" class="section you-are-section">
+        <div class="you-are-container">
+            <h2 class="section-title">You Are...</h2>
+            <div class="cards-grid">
+                <div class="attribute-card card-1" data-tooltip="Always there">
+                    <div class="card-inner">
+                        <p class="card-text">Someone I can always count on.</p>
+                    </div>
+                </div>
+                <div class="attribute-card card-2" data-tooltip="Your humor">
+                    <div class="card-inner">
+                        <p class="card-text">People ain't funny but I'd still laugh at jokes (I try bro).</p>
+                    </div>
+                </div>
+                <div class="attribute-card card-3" data-tooltip="I mean it">
+                    <div class="card-inner">
+                        <p class="card-text">Someone I'm genuinely proud of fr.</p>
+                    </div>
+                </div>
+                <div class="attribute-card card-4" data-tooltip="Certified 💎">
+                    <div class="card-inner">
+                        <p class="card-text">Gem bhai gem. 💎</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: ROAST SECTION -->
+    <section id="roast" class="section roast-section">
+        <div class="roast-container">
+            <h2 class="section-title">Okay, Enough Emotional Stuff.</h2>
+            <p class="roast-subtitle">Time to discuss your flaws.</p>
+            
+            <div class="roast-cards">
+                <div class="roast-card">
+                    <h3 class="roast-label">Ability to somehow still be lovable</h3>
+                    <p class="roast-answer">Unfortunately, 100%.</p>
+                </div>
+
+                <div class="roast-card">
+                    <h3 class="roast-label">Your age</h3>
+                    <p class="roast-answer">Boyosh hoise ig.</p>
+                </div>
+
+                <div class="roast-card">
+                    <h3 class="roast-label">Overall human quality</h3>
+                    <p class="roast-answer">You're a pretty good human. But wouldn't say 100% pretty. Boyosh hoise ig, oi hisabe bhaloi.</p>
+                </div>
+
+                <div class="roast-card">
+                    <h3 class="roast-label">Your organization skills</h3>
+                    <p class="roast-answer">Earbuds er arek kan koi haraise bhai</p>
+                </div>
+
+                <div class="roast-card">
+                    <h3 class="roast-label">Your sleep schedule</h3>
+                    <p class="roast-answer">kichu bolar nai,amarta ekhon baje,tmrta better</p>
+                </div>
+
+                <div class="roast-card">
+                    <h3 class="roast-label">Yet somehow</h3>
+                    <p class="roast-answer">You're still my favorite person. That's gotta count for something.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: MEMORY / PHOTO SECTION -->
+    <section id="memories" class="section memories-section">
+        <div class="memories-container">
+            <h2 class="section-title">Evidence That We Somehow Got Here 📸</h2>
+            
+            <div class="photos-grid">
+                <div class="photo-card">
+                    <img src="IMG_5430.jpeg" alt="Us at the farm" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    <p class="photo-caption">Us at the farm 🌿</p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="IMG_5402.jpeg" alt="Beautiful moments" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    <p class="photo-caption">Beautiful moments 💚</p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="0cfc85db-edf7-45ff-8031-0c532293d3ef.jpeg" alt="Family together" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    <p class="photo-caption">All together ❤️</p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="40154136-a2b2-4399-99cb-bb29c363555a.jpeg" alt="Good times" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    <p class="photo-caption">Good times 😊</p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="9cc9eb87-f4b7-4d05-96f8-846d5d6cd286.jpeg" alt="Sibling bond" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    <p class="photo-caption">Siblings 💕</p>
+                </div>
+
+                <div class="photo-card">
+                    <img src="edfb6897-a8cd-434d-88d8-6f1229294831.jpeg" alt="Us" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    <p class="photo-caption">Through it all 🌟</p>
+                </div>
+                <div class="photo-card featured-photo-card">
+                    <img src="ChatGPT Image Aug 29, 2026, 10_44_18 PM.png" alt="Birthday collage celebrating Mayabee" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    <p class="photo-caption">The birthday executive ðŸŽ‚</p>
+                </div>
+
+                <div class="photo-card featured-photo-card">
+                    <img src="ChatGPT Image Aug 29, 2026, 11_54_42 PM.png" alt="Black and white portrait of Mayabee" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    <p class="photo-caption">Soft heart, strong mind ðŸ¤</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: MEMORY TIMELINE -->
+    <section id="timeline" class="section timeline-section">
+        <div class="timeline-container">
+            <h2 class="section-title">The Lore</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Chapter 01 — The Beginning</h3>
+                        <img src="0cfc85db-edf7-45ff-8031-0c532293d3ef.jpeg" alt="Family chapter" style="width: 100%; border-radius: 8px; margin: 15px 0;">
+                        <p>The origin story. Where it all began. Family, chaos, and endless memories.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Chapter 02 — The Chaos Era</h3>
+                        <img src="40154136-a2b2-4399-99cb-bb29c363555a.jpeg" alt="Chaotic fun" style="width: 100%; border-radius: 8px; margin: 15px 0;">
+                        <p>When things got loud, fun, and impossible to predict.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Chapter 03 — Somehow We Survived</h3>
+                        <img src="9cc9eb87-f4b7-4d05-96f8-846d5d6cd286.jpeg" alt="Growing stronger" style="width: 100%; border-radius: 8px; margin: 15px 0;">
+                        <p>Through arguments, laughter, and late-night conversations. Against all odds, we made it.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Chapter 04 — Current Timeline</h3>
+                        <img src="IMG_5430.jpeg" alt="Now" style="width: 100%; border-radius: 8px; margin: 15px 0;">
+                        <p>And now, here we are. Still annoying each other, still growing together. Still yours. Happy birthday.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: MYSTERY GIFTS -->
+    <section id="surprise" class="section gifts-section">
+        <div class="gifts-container">
+            <h2 class="section-title">Pick Your Fate 🎁</h2>
+            
+            <div class="gifts-grid">
+                <div class="gift-box" data-gift="1">
+                    <div class="gift-box-inner">
+                        <div class="gift-box-top"></div>
+                        <div class="gift-box-body">
+                            <div class="gift-box-sides">
+                                <div class="gift-box-side"></div>
+                                <div class="gift-box-side"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gift-box" data-gift="2">
+                    <div class="gift-box-inner">
+                        <div class="gift-box-top"></div>
+                        <div class="gift-box-body">
+                            <div class="gift-box-sides">
+                                <div class="gift-box-side"></div>
+                                <div class="gift-box-side"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gift-box" data-gift="3">
+                    <div class="gift-box-inner">
+                        <div class="gift-box-top"></div>
+                        <div class="gift-box-body">
+                            <div class="gift-box-sides">
+                                <div class="gift-box-side"></div>
+                                <div class="gift-box-side"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gift-box" data-gift="4">
+                    <div class="gift-box-inner">
+                        <div class="gift-box-top"></div>
+                        <div class="gift-box-body">
+                            <div class="gift-box-sides">
+                                <div class="gift-box-side"></div>
+                                <div class="gift-box-side"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gift-message" id="giftMessage"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 11: FINAL MESSAGE -->
+    <section id="final" class="section final-section">
+        <div class="final-container">
+            <h1 class="final-heading">Happy Birthday, Mayabee. ❤️</h1>
+            
+            <div class="final-message">
+                <p>
+                    You're annoying. Like, genuinely annoying sometimes. And you're getting old (ew).
+                </p>
+                <p>
+                    But you're still somehow lovable. It doesn't make sense. It never has.
+                </p>
+                <p>
+                    And despite all the jokes, all the roasting, all the sibling chaos — I'm genuinely glad you're my sister. 
+                </p>
+                <p>
+                    Happy birthday.
+                </p>
+                <p class="final-signature">
+                    Love always,<br>Your annoying brother ✨
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLOSING PHOTO -->
+    <section class="closing-photo-section" aria-label="One last birthday moment">
+        <div class="closing-photo-frame">
+            <img src="image.jpg" alt="A funny birthday celebration scene with balloons and presents">
+            <p class="photo-caption">One last birthday mood ðŸŽˆ</p>
+        </div>
+    </section>
+
+    <!-- MUSIC PLAYER -->
+    <div class="music-player">
+        <button class="music-toggle" id="musicToggle" title="Toggle music">
+            <span class="music-icon">♫</span>
+        </button>
+        <audio id="birthdayAudio" src="SONG.mp3" preload="none"></audio>
+    </div>
+
+    <!-- Easter Egg Modal -->
+    <div class="easter-egg-modal" id="easterEggModal">
+        <div class="easter-egg-content" id="easterEggContent">
+            <!-- Content will be inserted here -->
+        </div>
+    </div>
+
+    <script src="birthday-script.js?v=5"></script>
+    <div class="wand-spark-layer" id="wandSparkLayer" aria-hidden="true"></div>
+</body>
+</html>
