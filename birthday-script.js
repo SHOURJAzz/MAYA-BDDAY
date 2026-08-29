@@ -105,6 +105,7 @@ function triggerMidnightTransition() {
     setTimeout(() => {
         midnightSection.style.display = 'none';
         cardSection.style.display = 'flex';
+        cardSection.classList.add('is-revealed');
         document.body.classList.remove('midnight-active');
         window.scrollTo(0, 0);
     }, 6500);
@@ -116,7 +117,10 @@ function showBirthdayExperience() {
     const cardSection = document.querySelector('.birthday-card-section');
     if (countdownSection) countdownSection.style.display = 'none';
     if (midnightSection) midnightSection.style.display = 'none';
-    if (cardSection) cardSection.style.display = 'flex';
+    if (cardSection) {
+        cardSection.style.display = 'flex';
+        cardSection.classList.add('is-revealed');
+    }
     document.body.classList.remove('site-locked', 'midnight-active');
     document.body.classList.add('site-unlocked');
 }
@@ -236,16 +240,16 @@ document.head.appendChild(floatStyle);
 
 function setupScrollReveal() {
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        threshold: 0.16,
+        rootMargin: '0px 0px -8% 0px'
     };
 
     const observer = typeof IntersectionObserver === 'function'
         ? new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('is-revealed');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions)
@@ -255,18 +259,13 @@ function setupScrollReveal() {
     document.querySelectorAll('.section').forEach((section, index) => {
         if (index === 0) {
             // Make the first section (countdown) visible immediately
-            section.style.opacity = '1';
-            section.style.transform = 'translateY(0)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            section.classList.add('is-revealed');
         } else {
             // Apply scroll reveal to other sections
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            section.classList.add('reveal-ready');
             if (observer) observer.observe(section);
             else {
-                section.style.opacity = '1';
-                section.style.transform = 'translateY(0)';
+                section.classList.add('is-revealed');
             }
         }
     });
