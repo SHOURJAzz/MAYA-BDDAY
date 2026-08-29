@@ -1,9 +1,5 @@
 // ==================== BANGLADESH TIME COUNTDOWN ==================== 
 
-// TEST MODE - Set to true to test the midnight transition immediately
-// When true, the birthday will be 10 seconds from now so you can see the animation
-const TEST_MODE = true; // LOCAL PREVIEW: change to false before sharing
-
 // Birthday date in Bangladesh Standard Time
 const BIRTHDAY_MONTH = 7; // August (0-indexed)
 const BIRTHDAY_DATE = 31;
@@ -13,7 +9,6 @@ const BIRTHDAY_SECOND = 0;
 
 // Bangladesh Standard Time is UTC+6
 const BD_TIMEZONE_OFFSET = 6 * 60; // 360 minutes
-let testBirthdayTime = null;
 
 function getBangladeshTime() {
     const now = new Date();
@@ -23,16 +18,9 @@ function getBangladeshTime() {
 }
 
 function getBirthdayTime() {
-    const now = getBangladeshTime();
-    
-    // TEST MODE: Birthday is 10 seconds from now
-    if (TEST_MODE) {
-        if (!testBirthdayTime) testBirthdayTime = new Date(now.getTime() + 10000);
-        return testBirthdayTime;
-    }
-    
-    // Build an absolute UTC timestamp for 00:00 in Bangladesh (UTC+6).
-    // This avoids the visitor's local timezone completely.
+    // Uttara follows Bangladesh Standard Time (UTC+6). Build an absolute
+    // timestamp for 00:00 on 31 August, independent of the visitor's timezone.
+    const now = new Date();
     return new Date(Date.UTC(
         now.getUTCFullYear(),
         BIRTHDAY_MONTH,
@@ -44,7 +32,8 @@ function getBirthdayTime() {
 }
 
 function updateCountdown() {
-    const now = getBangladeshTime();
+    // Both values are absolute timestamps, so subtraction is timezone-safe.
+    const now = new Date();
     const birthdayDate = getBirthdayTime();
     const diff = birthdayDate - now;
 
@@ -823,7 +812,7 @@ function setupNavigation() {
 function initializePage() {
     // Visitors arriving after midnight should see the birthday experience
     // immediately; only the live crossing gets the cinematic transition.
-    const birthdayStarted = getBangladeshTime() >= getBirthdayTime();
+    const birthdayStarted = new Date() >= getBirthdayTime();
     if (birthdayStarted) {
         window.birthdayReached = true;
         showBirthdayExperience();
