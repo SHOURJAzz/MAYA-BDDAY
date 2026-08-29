@@ -1259,7 +1259,7 @@ section:nth-child(even) {
 }
 
 .gift-box:hover .gift-box-inner {
-    transform: rotateY(8px) rotateX(-8px);
+    transform: rotateY(8deg) rotateX(-8deg);
 }
 
 .gift-box-top {
@@ -1862,4 +1862,277 @@ body::before {
     .birthday-name { letter-spacing: 5px; }
     .countdown-display { padding: 20px 10px 16px; }
     .countdown-value { font-size: 1.55rem; }
+}
+
+/* ==================== RESPONSIVE + MOTION POLISH ==================== */
+
+/* Keep every visual bounded by its viewport, including long words and media. */
+html {
+    min-width: 0;
+    overflow-x: hidden;
+    scroll-padding-top: 5rem;
+}
+
+body {
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+img,
+video,
+svg,
+canvas {
+    max-width: 100%;
+}
+
+.section {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: clamp(4.5rem, 10svh, 7rem) clamp(1rem, 4vw, 2rem);
+}
+
+.section > * {
+    min-width: 0;
+}
+
+.countdown-section {
+    min-height: 100vh;
+    min-height: 100svh;
+}
+
+.countdown-container,
+.letter-container,
+.you-are-container,
+.roast-container,
+.memories-container,
+.timeline-container,
+.game-container,
+.gifts-container,
+.final-container {
+    min-width: 0;
+}
+
+.countdown-display {
+    width: 100%;
+    gap: clamp(.25rem, 2vw, 1.25rem);
+    padding: clamp(1rem, 4vw, 1.625rem) clamp(.5rem, 4vw, 2rem) clamp(.85rem, 3vw, 1.375rem);
+}
+
+.countdown-item {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.countdown-value {
+    min-width: 0;
+    width: 100%;
+    font-size: clamp(1.45rem, 7vw, 3.15rem);
+    line-height: 1;
+}
+
+.countdown-unit {
+    max-width: 100%;
+    font-size: clamp(.48rem, 1.55vw, .75rem);
+    letter-spacing: clamp(.35px, .35vw, 2px);
+    white-space: nowrap;
+}
+
+.countdown-separator {
+    flex: 0 0 auto;
+    font-size: clamp(1rem, 4vw, 2rem);
+}
+
+.midnight-message {
+    width: min(90vw, 70rem);
+    white-space: normal;
+    text-align: center;
+    text-wrap: balance;
+    font-size: clamp(1.65rem, 8vw, 5rem);
+    line-height: 1.1;
+}
+
+.birthday-card {
+    width: min(100%, 31.25rem);
+    height: auto;
+}
+
+.card-content {
+    padding: clamp(1.5rem, 7vw, 2.625rem) clamp(1.15rem, 6vw, 2rem);
+}
+
+.card-heading,
+.final-heading {
+    font-size: clamp(1.65rem, 7vw, 3rem);
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+}
+
+.open-letter-btn {
+    max-width: 100%;
+    padding-inline: clamp(1rem, 6vw, 2.2rem);
+}
+
+.letter-content {
+    padding: clamp(2rem, 8vw, 3.75rem) clamp(1.1rem, 7vw, 3.125rem);
+}
+
+.letter-title,
+.section-title {
+    font-size: clamp(1.6rem, 6vw, 3rem);
+    line-height: 1.15;
+    text-wrap: balance;
+}
+
+.letter-main-text,
+.letter-subtext,
+.card-text,
+.roast-answer,
+.timeline-content,
+.final-message {
+    overflow-wrap: anywhere;
+}
+
+.cards-grid,
+.roast-cards,
+.photos-grid,
+.gifts-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+}
+
+.attribute-card {
+    min-width: 0;
+}
+
+.photo-card {
+    min-width: 0;
+}
+
+.photo-card img,
+.timeline-content img {
+    display: block;
+    max-width: 100%;
+}
+
+.timeline-content {
+    min-width: 0;
+}
+
+.gift-box-inner {
+    height: auto;
+    aspect-ratio: 1 / .86;
+}
+
+.gift-box-top {
+    top: clamp(-1.875rem, -6vw, -1.5rem);
+    height: clamp(1.5rem, 6vw, 1.875rem);
+}
+
+.music-player {
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* Scroll reveals now begin when the section enters the viewport, not on page load. */
+.reveal-ready {
+    opacity: 0;
+    transform: translate3d(0, 1.5rem, 0);
+}
+
+.reveal-ready.is-revealed {
+    animation: sectionReveal .8s cubic-bezier(.22, .78, .25, 1) both;
+}
+
+.reveal-ready .roast-card,
+.reveal-ready .photo-card,
+.reveal-ready .timeline-item,
+.reveal-ready .gift-box {
+    animation-play-state: paused;
+}
+
+.reveal-ready.is-revealed .roast-card,
+.reveal-ready.is-revealed .photo-card,
+.reveal-ready.is-revealed .timeline-item,
+.reveal-ready.is-revealed .gift-box {
+    animation-play-state: running;
+}
+
+@keyframes sectionReveal {
+    from { opacity: 0; transform: translate3d(0, 1.5rem, 0); }
+    to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@media (hover: none) {
+    .photo-caption {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(15, 12, 27, .9), transparent);
+    }
+}
+
+@media (max-width: 600px) {
+    .section::after {
+        bottom: 1rem;
+        letter-spacing: 4px;
+    }
+
+    .countdown-display {
+        border-radius: 1.1rem;
+    }
+
+    .countdown-cake {
+        width: min(72vw, 19rem);
+        max-height: 35svh;
+    }
+
+    .cards-grid,
+    .roast-cards,
+    .photos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gifts-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(1rem, 5vw, 1.5rem);
+    }
+
+    .game-area {
+        max-height: 60svh;
+    }
+}
+
+@media (max-width: 360px) {
+    .countdown-display {
+        gap: .1rem;
+        padding-inline: .35rem;
+    }
+
+    .countdown-value {
+        font-size: 1.3rem;
+    }
+
+    .countdown-unit {
+        font-size: .43rem;
+        letter-spacing: 0;
+    }
+
+    .countdown-separator {
+        font-size: .9rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+
+    .reveal-ready,
+    .reveal-ready.is-revealed {
+        opacity: 1;
+        transform: none;
+    }
 }
